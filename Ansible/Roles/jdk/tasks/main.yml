@@ -1,0 +1,14 @@
+---
+# JDK installation
+- name: System update
+  apt: update_cache=true
+- name: Install default JRE
+  apt: name=default-jre state=present
+- name: Add repo
+  apt_repository: repo='ppa:webupd8team/java'
+- name: Set licence selected
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+- name: Set licence seen
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
+- name: Install oracle java
+  apt: name=oracle-java8-installer state=latest update_cache=yes

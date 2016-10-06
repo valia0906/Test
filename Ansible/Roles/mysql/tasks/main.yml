@@ -1,0 +1,16 @@
+---
+# MySQL installation
+- name: System update
+  apt: update_cache=true
+- name: Install MySQL server
+  apt: name={{ mysql_server_version }} state=latest
+- name: Install MySQL-client
+  apt: name={{ mysql_client_version }} state=latest
+- name: Install python
+  apt: name=python-mysqldb state=latest
+- name: Create user
+  mysql_user: >
+    name=root
+    password=root      
+    priv=*.*:ALL,GRANT
+    state=present

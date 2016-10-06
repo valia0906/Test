@@ -1,0 +1,17 @@
+--- # PB
+
+- hosts: 127.0.0.1
+  user: '{{ user }}'
+  become: true
+
+  roles:
+   #- git
+   #- jdk
+   #- vagrant
+   #- idea
+   #- sbt # need sudo 
+   #- virtualbox
+   #- mc
+   #- mysql
+
+   

@@ -1,0 +1,4 @@
+---
+# JDK installation
+- name: Git install
+  apt: name=git state=latest

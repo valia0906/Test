@@ -1,0 +1,12 @@
+---
+# Intellij idea installation
+- name: Downloading idea
+  get_url:
+    url: "https://download-cf.jetbrains.com/idea/{{ idea_version }}.tar.gz"
+    dest: "{{ downloading_destination }}"
+- name: Unarchive
+  unarchive: "src={{ downloading_destination }}/{{ idea_version }}.tar.gz dest={{ downloading_destination }}" 
+- name: Script running
+  command: ./idea.sh
+  args:
+   chdir: "{{ downloading_destination }}/idea-IC-162.2032.8/bin"
